@@ -38,3 +38,24 @@ with col1:
     st.metric('선택된 역 수', f'{len(picked)}개')
 with col2:
     total_passengers = int(summary_df['인원수'].sum())
+    st.metric('합계 인원(선택 기준)', f'{total_passengers}명')
+with col3:
+    st.metric('데이터 기간', f'{df["날짜"].min().date()}~{df["날짜"].max().date()}')
+
+st.divider()
+
+#  --- 탭 ---
+tab1, tab2 = st.tabs(['표로 보기', '그래프로 보기'])
+with tab1:
+    st.dataframe(
+        summary_df.sort_values('날짜', ascending=False).head(30)[['날짜', '역명', '승하차', '시간대컬럼', '인원수', '요일코드']]
+    )
+
+with tab2:
+    if not summary_df.empty:
+        chart_data = (
+            summary_df.groupby('역명', observed=True)['인원수'].sum().sort_values(ascending=False)
+        )
+        st.bar_chart(chart_data)
+    else:
+        st.info('사이드바에서 역을 하나 이상 선택해주세요.')

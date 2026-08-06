@@ -80,7 +80,7 @@ if submitted:
         # 표는 상위 500행만 보여주고 다운로드는 전체 제공
         st.dataframe(
             filtered.sort_values('날짜', ascending=False)
-            .head(500)[['날짜', '역명',' 승하차',' 시간대컬럼', '인원수', '요일코드', '주말여부']]
+            .head(500)[['날짜', '역명', '승하차', '시간대컬럼', '인원수', '요일코드', '주말여부']]
         )
         if len(filtered) > 500:
             st.caption(f'표에는 상위 500건만 표시됩니다. 전체 {len(filtered):,}건은 아래 버튼으로 다운로드하세요.')

@@ -28,13 +28,13 @@ st.set_page_config(
 home_page = st.Page('pages_src/home.py', title='홈', icon='🏰', default = True)
 explore_page = st.Page('pages_src/explore.py', title='역별 탐색', icon='🚄')
 search_page = st.Page('pages_src/search.py', title='검색', icon='🔎')
-trend_page = st.Page('pages_src/trend.py', title='기간,시간대 추이', icon='📈 ')
+# trend_page = st.Page('pages_src/trend.py', title='기간,시간대 추이', icon='📈 ')
 about_page = st.Page('pages_src/about.py', title='소개', icon='📢')
 
 # ---사이드바에 페이지 연결 ; 각 섹션 제목이 함께 표시된다, 딕셔너리 형태로. ---
 pg = st.navigation({
     '메인': [home_page],
-    '데이터 탐색' : [explore_page, search_page, trend_page,],
+    '데이터 탐색' : [explore_page, search_page,],
     '기타' : [about_page]
 })
 
