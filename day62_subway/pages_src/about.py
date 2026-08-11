@@ -14,7 +14,7 @@ st.write('대구 지하철 시간대별 승하차 데이터를 활용한 Streaml
 
 st.subheader('지금까지 다른 화면에서 남긴 흔적')
 
-if 'faverite_stations' in st.session_state and st.session_state.faverite_stations:
+if 'favorite_stations' in st.session_state and st.session_state.favorite_stations:
     st.write('즐겨찾는 역 :', st.session_state.favorite_stations)
 
 else:
